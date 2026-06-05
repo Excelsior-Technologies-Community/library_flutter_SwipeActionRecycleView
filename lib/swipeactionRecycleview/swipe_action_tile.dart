@@ -3,6 +3,7 @@ import 'package:library_flutter_swipeaction_recycleview/swipeactionRecycleview/s
 
 class SwipeActionTile extends StatefulWidget {
   final Widget child;
+  final double iconSize;
   final List<SwipeAction> leftActions;
   final List<SwipeAction> rightActions;
 
@@ -11,6 +12,7 @@ class SwipeActionTile extends StatefulWidget {
     required this.child,
     required this.leftActions,
     required this.rightActions,
+    this.iconSize=20,
   });
 
   @override
@@ -35,6 +37,7 @@ class _SwipeActionTileState extends State<SwipeActionTile> with SingleTickerProv
                   icon: Icon(
                     action.icon,
                     color: Colors.white,
+                    size: widget.iconSize,
                   ),
                   onPressed: action.onTap,
                 ),
@@ -49,9 +52,7 @@ class _SwipeActionTileState extends State<SwipeActionTile> with SingleTickerProv
               offset += details.delta.dx;
 
               if (offset > 0) offset = 0;
-
-              final maxOffset =
-              -(widget.rightActions.length * 80);
+              final maxOffset = -(widget.rightActions.length * 80);
 
               if (offset < maxOffset) {
                 offset = maxOffset as double;
