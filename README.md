@@ -45,7 +45,7 @@ Add the dependency to your `pubspec.yaml`:
 dependencies:
   library_flutter_swipeaction_recycleview:
     git:
-      url: https://github.com/AkshaySarkale/library_flutter_SwipeActionRecycleView.git
+      url: https://github.com/Excelsior-Technologies-Community/library_flutter_SwipeActionRecycleView.git
 ```
 
 Or via terminal:
