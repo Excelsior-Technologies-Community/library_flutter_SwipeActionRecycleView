@@ -17,22 +17,23 @@ class SwipeActionTile extends StatefulWidget {
   State<SwipeActionTile> createState() => _SwipeActionTileState();
 }
 
-class _SwipeActionTileState extends State<SwipeActionTile>  with SingleTickerProviderStateMixin{
-  final double offset=0;
-  late AnimationController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 300),
-    );
-  }
+class _SwipeActionTileState extends State<SwipeActionTile> with SingleTickerProviderStateMixin {
+  double offset = 0;
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return GestureDetector(
+      onHorizontalDragUpdate: (details) {
+        setState(() {
+          offset += details.delta.dx;
+          if (offset > 120) offset = 120;
+          if (offset < -120) offset = -120;
+        });
+      },
+      child: Transform.translate(
+        offset: Offset(offset, 0),
+        child: widget.child,
+      ),
+    );
   }
 }
