@@ -1,7 +1,7 @@
 name: library_flutter_swipeaction_recycleview
 description: "A new Flutter package project."
 version: 0.0.1
-homepage: https://github.com/AkshaySarkale/library_flutter_SwipeActionRecycleView.git
+homepage: https://github.com/Excelsior-Technologies-Community/library_flutter_SwipeActionRecycleView.git
 
 environment:
   sdk: ^3.12.1
