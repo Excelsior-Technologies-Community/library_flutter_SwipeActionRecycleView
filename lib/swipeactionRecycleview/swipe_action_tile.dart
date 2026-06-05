@@ -22,18 +22,48 @@ class _SwipeActionTileState extends State<SwipeActionTile> with SingleTickerProv
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onHorizontalDragUpdate: (details) {
-        setState(() {
-          offset += details.delta.dx;
-          if (offset > 120) offset = 120;
-          if (offset < -120) offset = -120;
-        });
-      },
-      child: Transform.translate(
-        offset: Offset(offset, 0),
-        child: widget.child,
-      ),
+    return Stack(
+      children: [
+        Positioned.fill(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: widget.rightActions.map((action) {
+              return Container(
+                width: 80,
+                color: action.color,
+                child: IconButton(
+                  icon: Icon(
+                    action.icon,
+                    color: Colors.white,
+                  ),
+                  onPressed: action.onTap,
+                ),
+              );
+            }).toList(),
+          ),
+        ),
+
+        GestureDetector(
+          onHorizontalDragUpdate: (details) {
+            setState(() {
+              offset += details.delta.dx;
+
+              if (offset > 0) offset = 0;
+
+              final maxOffset =
+              -(widget.rightActions.length * 80);
+
+              if (offset < maxOffset) {
+                offset = maxOffset as double;
+              }
+            });
+          },
+          child: Transform.translate(
+            offset: Offset(offset, 0),
+            child: widget.child,
+          ),
+        ),
+      ],
     );
   }
 }
