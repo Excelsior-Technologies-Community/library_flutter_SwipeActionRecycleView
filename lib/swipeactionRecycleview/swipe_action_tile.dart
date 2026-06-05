@@ -131,11 +131,9 @@ class _CustomSwipeActionTileState extends State<CustomSwipeActionTile>
             },
             onHorizontalDragUpdate: (details) {
               if (_controller.isAnimating) _controller.stop();
-              
               setState(() {
                 _offset += details.delta.dx * widget.dragResistance;
-                
-                // Clamp and allow slight overscroll resistance
+
                 if (_offset < maxRightOffset) {
                   _offset = maxRightOffset + (details.delta.dx * 0.1);
                 } else if (_offset > maxLeftOffset) {
