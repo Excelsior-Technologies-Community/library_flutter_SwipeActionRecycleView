@@ -1,5 +1,4 @@
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+library library_flutter_swipeaction_recycleview;
+
+export 'swipeactionRecycleview/swipe_action.dart';
+export 'swipeactionRecycleview/swipe_action_tile.dart';
