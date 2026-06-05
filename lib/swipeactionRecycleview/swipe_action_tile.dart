@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:library_flutter_swipeaction_recycleview/swipeactionRecycleview/swipe_action.dart';
@@ -49,7 +48,7 @@ class _CustomSwipeActionTileState extends State<CustomSwipeActionTile>
   @override
   void didUpdateWidget(covariant CustomSwipeActionTile oldWidget) {
     super.didUpdateWidget(oldWidget);
-    // Reset offset if the widget is reused for a different item in a list
+
     if (widget.child != oldWidget.child) {
       _offset = 0;
       _controller.stop();
